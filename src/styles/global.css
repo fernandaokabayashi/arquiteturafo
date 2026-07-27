@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 @font-face {
   font-family: 'Vonca';
   src: url('/vonca-regular.otf') format('opentype');
@@ -39,6 +38,15 @@
 --dark: #000000;
 
 --bg: #F7F7F6;
+  
+--gray-900: #1F2937;
+--gray-700: #4B5563;
+--gray-500: #6B7280;
+--gray-300: #D1D5DB;
+--gray-100: #F3F4F6;
+--gray-50: #FAFAF7;
+--paper: #FFFFFF;
+
 --display: 'Future Now', serif;
 --body: 'Vonca', sans-serif;
 
