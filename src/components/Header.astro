@@ -67,28 +67,34 @@ const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
     border-bottom: 1px solid var(--gray-100);
   }
 
-  .header-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    height: 92px;
-  }
+ .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  height: 110px;
+}
 
   .logo {
     display: inline-flex;
     align-items: center;
   }
 
-  .logo img {
-    height:120px;
-    width:auto;
+ .logo img {
+    height: 110px;
+    width: auto;
+    object-fit: contain;
 }
 
-  @media (max-width: 600px) {
-    .header-inner { height: 80px; }
-    .logo img { height: 60px; }
+@media (max-width: 600px) {
+  .header-inner {
+    height: 80px;
   }
+
+  .logo img {
+    height: 70px;
+  }
+}
 
   .nav-desktop ul {
     display: flex;
