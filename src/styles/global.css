@@ -2,21 +2,19 @@
 
 :root {
   /* Tokens do Brandbook v1 — F.O Arquitetura · Carbono #1A1A1A + Tiffany Sereno #0ABAB5 */
-  --primary: #1A1A1A;
-  --primary-soft: rgba(26, 26, 26, 0.06);
-  --secondary: #0ABAB5;
-  --secondary-soft: rgba(10, 186, 181, 0.08);
-  --secondary-on-dark: #90DFDD;
-  --brand-glow-rgb: 10, 186, 181;
-  --dark: #0F1419;
-  --gray-900: #1F2937;
-  --gray-700: #4B5563;
-  --gray-500: #6B7280;
-  --gray-300: #D1D5DB;
-  --gray-100: #F3F4F6;
-  --gray-50: #FAFAF7;
-  --paper: #FFFFFF;
-  --bg: #FAFAF7;
+--primary: #000000;
+--primary-soft: rgba(0,0,0,.06);
+
+--secondary: #07A3A7;
+--secondary-soft: rgba(7,163,167,.08);
+
+--secondary-on-dark: #8FE6E7;
+
+--brand-glow-rgb: 7,163,167;
+
+--dark: #000000;
+
+--bg: #F7F7F6;
 
   --display: 'Playfair Display', Georgia, serif;
   --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
