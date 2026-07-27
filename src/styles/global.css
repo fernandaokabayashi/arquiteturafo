@@ -1,4 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@font-face {
+  font-family: 'Vonca';
+  src: url('/vonca-regular.otf') format('opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Vonca';
+  src: url('/vonca-semibold.otf') format('opentype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Vonca';
+  src: url('/vonca-bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Future Now';
+  src: url('/FuturaNowHeadlineItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
 
 :root {
   /* Tokens do Brandbook v1 — F.O Arquitetura · Carbono #1A1A1A + Tiffany Sereno #0ABAB5 */
@@ -15,9 +39,8 @@
 --dark: #000000;
 
 --bg: #F7F7F6;
-
-  --display: 'Playfair Display', Georgia, serif;
-  --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+--display: 'Future Now', serif;
+--body: 'Vonca', sans-serif;
 
   --max-width: 1320px;
   --gutter: 24px;
