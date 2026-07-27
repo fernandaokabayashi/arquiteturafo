@@ -24,7 +24,7 @@
 }
 
 :root {
-  /* Tokens do Brandbook v1 — F.O Arquitetura · Carbono #1A1A1A + Tiffany Sereno #0ABAB5 */
+  /* Tokens do Brandbook v1 — Fernanda Okabayashi Arquitetura · Carbono #1A1A1A + Tiffany Sereno #0ABAB5 */
 --primary: #000000;
 --primary-soft: rgba(0,0,0,.06);
 
@@ -36,6 +36,14 @@
 --brand-glow-rgb: 7,163,167;
 
 --dark: #000000;
+  
+  --gray-900: #1F2937;
+--gray-700: #4B5563;
+--gray-500: #6B7280;
+--gray-300: #D1D5DB;
+--gray-100: #F3F4F6;
+--gray-50: #FAFAF7;
+--paper: #FFFFFF;
 
 --bg: #F7F7F6;
   
