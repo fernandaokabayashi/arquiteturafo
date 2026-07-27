@@ -31,13 +31,13 @@ if (contacts.linkedin_url) sameAs.push(contacts.linkedin_url);
 const jsonLd: Record<string, unknown> = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'F.O Arquitetura',
+  name: 'Fernanda Okabayashi Arquitetura',
   description,
   url: 'https://www.foarquitetura.com.br',
   founder: {
     '@type': 'Person',
     name: 'Fernanda Okabayashi',
-    jobTitle: 'Arquiteta · Avaliação Imobiliária para Bancos',
+    jobTitle: 'Arquitetura e Interiores · Avaliação Imóveis · INSS de obras ',
   },
 };
 if (contacts.email) jsonLd.email = contacts.email;
