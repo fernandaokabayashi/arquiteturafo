@@ -1,0 +1,172 @@
+---
+import { whatsappUrl, emailUrl } from '../lib/contacts';
+
+const navItems = [
+  { href: '/#topo', label: 'Início' },
+  { href: '/#sobre', label: 'Sobre' },
+  { href: '/#servicos', label: 'Serviços' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/#contato', label: 'Contato' },
+];
+
+const waUrl = whatsappUrl();
+const mailUrl = emailUrl();
+const ctaHref = waUrl ?? mailUrl;
+const ctaTarget = waUrl ? '_blank' : undefined;
+const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="F.O Arquitetura — Início">
+      <img src="/logo-icone.svg" alt="F.O Arquitetura" />
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navegação principal">
+      <ul>
+        {navItems.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    {ctaHref && (
+      <a href={ctaHref} class="btn btn-brand btn-cta" target={ctaTarget} rel={ctaRel}>Falar com especialista</a>
+    )}
+
+    <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile" id="nav-mobile" aria-hidden="true">
+    <ul>
+      {navItems.map((item) => (
+        <li><a href={item.href}>{item.label}</a></li>
+      ))}
+      {ctaHref && (
+        <li>
+          <a href={ctaHref} class="btn btn-brand" target={ctaTarget} rel={ctaRel}>Falar com especialista</a>
+        </li>
+      )}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    height: 92px;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 72px;
+    width: auto;
+  }
+
+  @media (max-width: 600px) {
+    .header-inner { height: 80px; }
+    .logo img { height: 60px; }
+  }
+
+  .nav-desktop ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+  }
+
+  .nav-desktop a {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    color: var(--gray-700);
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all var(--transition);
+  }
+
+  .nav-desktop a:hover {
+    color: var(--primary);
+    border-bottom-color: var(--secondary);
+  }
+
+  .btn-cta {
+    font-size: 14px;
+    padding: 12px 24px;
+  }
+
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--primary);
+    transition: all var(--transition);
+  }
+
+  .nav-mobile {
+    display: none;
+    padding: 24px var(--gutter);
+    border-top: 1px solid var(--gray-100);
+  }
+
+  .nav-mobile ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav-mobile a {
+    display: block;
+    padding: 12px 0;
+    font-size: 16px;
+    color: var(--gray-900);
+  }
+
+  .nav-mobile.open {
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    .nav-desktop, .btn-cta { display: none; }
+    .nav-toggle { display: flex; }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const mobile = document.getElementById('nav-mobile');
+  toggle?.addEventListener('click', () => {
+    const open = mobile?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+    mobile?.setAttribute('aria-hidden', String(!open));
+  });
+</script>

@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Tokens do Brandbook v1 — F.O Arquitetura · Carbono #1A1A1A + Tiffany Sereno #0ABAB5 */
+  --primary: #1A1A1A;
+  --primary-soft: rgba(26, 26, 26, 0.06);
+  --secondary: #0ABAB5;
+  --secondary-soft: rgba(10, 186, 181, 0.08);
+  --secondary-on-dark: #90DFDD;
+  --brand-glow-rgb: 10, 186, 181;
+  --dark: #0F1419;
+  --gray-900: #1F2937;
+  --gray-700: #4B5563;
+  --gray-500: #6B7280;
+  --gray-300: #D1D5DB;
+  --gray-100: #F3F4F6;
+  --gray-50: #FAFAF7;
+  --paper: #FFFFFF;
+  --bg: #FAFAF7;
+
+  --display: 'Playfair Display', Georgia, serif;
+  --body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --max-width: 1200px;
+  --gutter: 24px;
+  --section-pad: 96px;
+  --section-pad-mobile: 64px;
+
+  --radius: 4px;
+  --radius-lg: 12px;
+
+  --transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--body);
+  color: var(--gray-900);
+  background: var(--bg);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--gray-900);
+}
+
+h1 { font-size: clamp(40px, 6vw, 72px); }
+h2 { font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 24px; }
+h3 { font-size: clamp(22px, 2.5vw, 28px); margin-bottom: 12px; font-weight: 700; }
+h4 { font-size: 18px; margin-bottom: 8px; }
+
+p { font-size: 16px; line-height: 1.7; }
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover { color: var(--secondary); }
+
+img, svg { display: block; max-width: 100%; height: auto; }
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section {
+  padding: var(--section-pad) 0;
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--section-pad-mobile) 0; }
+}
+
+.section.dark {
+  background: var(--dark);
+  color: #fff;
+}
+
+.section.dark h1, .section.dark h2, .section.dark h3, .section.dark h4 {
+  color: #fff;
+}
+
+.section.dark .eyebrow,
+.section.primary .eyebrow {
+  color: var(--secondary-on-dark);
+}
+
+.section.dark .lead,
+.section.primary .lead {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.section.tinted { background: var(--gray-100); }
+.section.primary { background: var(--primary); color: #fff; }
+.section.primary h1, .section.primary h2, .section.primary h3, .section.primary h4 { color: #fff; }
+
+.eyebrow {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.divider {
+  width: 64px;
+  height: 4px;
+  background: var(--secondary);
+  margin: 0 0 32px;
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--gray-700);
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.4px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--secondary);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(31, 42, 56, 0.15);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* CTA principal — bordô da marca, hover branco. Usar em "Falar com especialista". */
+.btn-brand {
+  background: var(--secondary);
+  color: #fff;
+  border: 1.5px solid var(--secondary);
+}
+
+.btn-brand:hover {
+  background: #fff;
+  color: var(--secondary);
+  border-color: #fff;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.3);
+}
+
+.btn-ghost:hover {
+  background: #fff;
+  color: var(--primary);
+  border-color: #fff;
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+}
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+@media (max-width: 900px) {
+  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: all var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(31, 42, 56, 0.08);
+  border-color: var(--secondary-soft);
+}
+
+.card h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--gray-700);
+}
+
+.text-center { text-align: center; }
+.text-secondary { color: var(--secondary); }

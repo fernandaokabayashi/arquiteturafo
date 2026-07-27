@@ -1,0 +1,202 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { whatsappUrl, emailUrl } from '../../lib/contacts';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const waUrl = whatsappUrl();
+const mailUrl = emailUrl();
+const ctaHref = waUrl ?? mailUrl ?? '/#contato';
+const ctaTarget = waUrl ? '_blank' : undefined;
+const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
+---
+
+<BaseLayout
+  title={`${post.data.title} — Blog F.O Arquitetura`}
+  description={post.data.description}
+>
+  <article class="post-article">
+    <header class="post-header">
+      <div class="container narrow">
+        <a href="/blog" class="back-link">← Todos os posts</a>
+        <div class="post-meta">
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
+          </time>
+          {post.data.tags.length > 0 && (
+            <span class="post-tags">{post.data.tags.join(' · ')}</span>
+          )}
+        </div>
+        <h1>{post.data.title}</h1>
+        <p class="lead">{post.data.description}</p>
+        <div class="post-author">
+          <strong>{post.data.author}</strong>
+          <span>Arquiteta · Avaliação Imobiliária para Bancos</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="container narrow">
+      <div class="post-content">
+        <Content />
+      </div>
+    </div>
+
+    <section class="section primary cta-post">
+      <div class="container text-center">
+        <h2>Conte sobre seu caso.</h2>
+        <p class="lead" style="color: rgba(255,255,255,0.85); margin: 0 auto 32px;">
+          Cada decisão patrimonial é única — e cada laudo deve ser também.
+        </p>
+        <a
+          href={ctaHref}
+          class="btn btn-brand"
+          target={ctaTarget}
+          rel={ctaRel}
+        >Falar com especialista</a>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-header {
+    padding: 56px 0 48px;
+    background: var(--gray-100);
+    border-bottom: 1px solid var(--gray-300);
+  }
+
+  .narrow { max-width: 780px; }
+
+  .back-link {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
+  }
+
+  .back-link:hover { color: var(--secondary); }
+
+  .post-meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-700);
+    margin-bottom: 16px;
+  }
+
+  .post-tags { color: var(--secondary); }
+
+  .post-header h1 {
+    color: var(--primary);
+    font-size: clamp(32px, 5vw, 56px);
+    margin-bottom: 16px;
+  }
+
+  .post-header .lead {
+    color: var(--gray-700);
+    font-size: 19px;
+    margin-bottom: 32px;
+  }
+
+  .post-author {
+    display: flex;
+    flex-direction: column;
+    border-left: 3px solid var(--secondary);
+    padding-left: 16px;
+  }
+
+  .post-author strong {
+    font-size: 15px;
+    color: var(--primary);
+  }
+
+  .post-author span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-top: 4px;
+  }
+
+  .post-content {
+    padding: 64px 0;
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--gray-900);
+  }
+
+  .post-content :global(h2) {
+    font-size: clamp(26px, 3vw, 34px);
+    color: var(--primary);
+    margin: 48px 0 16px;
+  }
+
+  .post-content :global(h2::before) {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--secondary);
+    margin-bottom: 16px;
+  }
+
+  .post-content :global(h3) {
+    font-size: 22px;
+    color: var(--primary);
+    margin: 32px 0 12px;
+  }
+
+  .post-content :global(p) {
+    margin-bottom: 20px;
+    font-size: 17px;
+  }
+
+  .post-content :global(ul), .post-content :global(ol) {
+    margin: 16px 0 24px 24px;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 8px;
+    font-size: 17px;
+  }
+
+  .post-content :global(blockquote) {
+    border-left: 3px solid var(--secondary);
+    padding: 8px 24px;
+    margin: 32px 0;
+    font-style: italic;
+    color: var(--gray-700);
+    background: var(--gray-100);
+  }
+
+  .post-content :global(strong) {
+    color: var(--primary);
+  }
+
+  .post-content :global(a) {
+    color: var(--secondary);
+    border-bottom: 1px solid var(--secondary-soft);
+  }
+
+  .cta-post { margin-top: 0; }
+</style>

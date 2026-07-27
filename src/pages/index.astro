@@ -1,0 +1,504 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { contacts, whatsappUrl, emailUrl, heroImages, aboutPhotos } from '../lib/contacts';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const waUrl = whatsappUrl();
+const mailUrl = emailUrl();
+const hero = heroImages();
+const about = aboutPhotos();
+
+// CSS escape simples para URLs em background-image
+function cssUrl(s: string) {
+  return s.replace(/[\\'"]/g, '\\$&');
+}
+---
+
+<BaseLayout
+  title="F.O Arquitetura — Avaliação imobiliária para bancos · laudo na forma certa, no prazo"
+  description="Avaliação de imóveis para Caixa, Banco do Brasil e bancos privados — laudo na forma exigida pela instituição, primeira versão, sem retrabalho. Atendimento direto com a arquiteta Fernanda Okabayashi."
+>
+  <!-- HERO -->
+  <section
+    class={`hero ${hero ? 'hero-with-photo' : ''}`}
+    id="topo"
+    style={hero
+      ? `--hero-image: url('${cssUrl(hero.desktop)}'); --hero-image-mobile: url('${cssUrl(hero.mobile)}');`
+      : ''}
+  >
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow">Avaliação · Laudos · Financiamento Bancário</span>
+        <h1>Ordem e clareza<br/>em cada laudo.</h1>
+        <p class="lead">
+          Avaliação imobiliária para instituições financeiras — laudo na forma exata exigida pelo banco, primeira versão, dentro do prazo combinado.
+        </p>
+        <div class="hero-cta">
+          <a href={waUrl ?? mailUrl ?? '#contato'} class="btn btn-brand" {...(waUrl ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>Falar com especialista</a>
+          <a href="#sobre" class="btn btn-secondary">Conhecer a arquiteta</a>
+        </div>
+      </div>
+      {!hero && (
+        <div class="hero-visual" aria-hidden="true">
+          <img src="/logo-icone-transparent.svg" alt="" class="hero-mark" />
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class={`who-block ${about ? 'who-block-with-photo' : ''}`}>
+        <div class="who-text">
+          <span class="eyebrow">Quem atende você</span>
+          <h2>Fernanda Okabayashi</h2>
+          <div class="divider"></div>
+          <p>
+            A <strong>F.O Arquitetura</strong> é a marca-assinatura da arquiteta <strong>Fernanda Okabayashi</strong> — organizada, direta, voltada a entregar avaliações imobiliárias em prazo curto para instituições financeiras.
+          </p>
+          <p>
+            Atendemos <strong>Caixa Econômica</strong>, <strong>Banco do Brasil</strong> e <strong>bancos privados</strong> que aceitam laudos credenciados — com a organização e a clareza de quem trata cada laudo como peça única.
+          </p>
+          <p class="lead-quote">
+            "Ordem e clareza em cada laudo."
+          </p>
+        </div>
+        {about && (
+          <picture class="about-photo-wrap">
+            <source srcset={about.mobile} media="(max-width: 768px)" />
+            <img src={about.desktop} alt="Fernanda Okabayashi" class="about-photo" />
+          </picture>
+        )}
+      </div>
+
+      <div class="mvv-row">
+        <div class="mvv-card">
+          <span class="eyebrow">Missão</span>
+          <p>Entregar avaliações imobiliárias com organização, clareza e agilidade — facilitando decisões de financiamento sem perder rigor técnico.</p>
+        </div>
+        <div class="mvv-card">
+          <span class="eyebrow">Visão</span>
+          <p>Crescer com base em reputação de excelência técnica e atendimento confiável a instituições financeiras.</p>
+        </div>
+        <div class="mvv-card">
+          <span class="eyebrow">Valores</span>
+          <p>Comprometimento · Responsabilidade · Organização · Clareza · Agilidade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="section tinted">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">O que entregamos</span>
+        <h2>Serviços</h2>
+        <div class="divider"></div>
+        <p class="lead">Cada laudo entregue na forma exigida pela instituição. Primeira versão, sem retrabalho, dentro do prazo combinado.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card service-card">
+          <h3>Avaliação para financiamento</h3>
+          <p>Laudo de avaliação imobiliária no padrão exigido por Caixa Econômica, Banco do Brasil e bancos privados — entregue na forma certa, no prazo, sem ida e volta.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Laudos técnicos de imóveis</h3>
+          <p>Laudo com metodologia da NBR 14.653 para venda, partilha, espólio, dação em pagamento ou composição patrimonial — fundamentação técnica clara para cada finalidade.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Vistoria cautelar e entrega de chaves</h3>
+          <p>Documentação técnica do estado real do imóvel — base para acionar garantias construtivas, registrar ocorrência ou proteger patrimônio antes de obra vizinha.</p>
+        </div>
+        <div class="card service-card">
+          <h3>Consultoria técnica para decisões</h3>
+          <p>Análise técnica focada na decisão de compra ou financiamento — leitura do imóvel, contexto e fundamentação para negociar com base em dado, não em achismo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAL -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Diferencial</span>
+        <h2>Laudo na forma certa, no prazo, sem retrabalho.</h2>
+        <div class="divider"></div>
+        <p class="lead">A F.O nasceu pra resolver o que mais trava o financiamento: laudo fora do padrão, prazo perdido, comunicação confusa. Cada entrega é tratada como peça única.</p>
+      </div>
+
+      <div class="grid grid-3 reasons-grid">
+        <div class="reason">
+          <div class="reason-num">01</div>
+          <h3>Forma exata do banco</h3>
+          <p>Cada banco tem padrão próprio. O laudo sai na primeira versão na forma exigida — sem rejeição, sem retrabalho, sem prazo perdido.</p>
+        </div>
+        <div class="reason">
+          <div class="reason-num">02</div>
+          <h3>Prazo respeitado</h3>
+          <p>Combinou o prazo, está combinado. Sem e-mail confuso, sem cobrar status, sem surpresa no dia da entrega.</p>
+        </div>
+        <div class="reason">
+          <div class="reason-num">03</div>
+          <h3>Atendimento direto</h3>
+          <p>Você fala com a arquiteta que assina o laudo — não com intermediário, não com terceirização. Comunicação clara e organizada do começo ao fim.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG PREVIEW -->
+  {posts.length > 0 && (
+    <section class="section tinted">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Conteúdo técnico</span>
+          <h2>Do blog</h2>
+          <div class="divider"></div>
+          <p class="lead">Conteúdo autoral sobre avaliação imobiliária, laudos técnicos e financiamento bancário — escrito pela arquiteta a partir do que se vê na prática com Caixa, BB e bancos privados.</p>
+        </div>
+
+        <div class="grid grid-3">
+          {posts.map((post) => (
+            <a href={`/blog/${post.id}`} class="card">
+              <span class="post-date">{post.data.pubDate.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+              <span class="card-link">Ler →</span>
+            </a>
+          ))}
+        </div>
+
+        <div class="text-center" style="margin-top: 48px;">
+          <a href="/blog" class="btn btn-secondary">Ver todos os posts</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="container">
+      <div class="section-head section-head-center">
+        <span class="eyebrow">Atendimento direto</span>
+        <h2>Pra cada laudo, uma conversa antes do orçamento.</h2>
+        <div class="divider"></div>
+        <p class="lead">
+          Conte qual o imóvel, qual o banco e qual o prazo. Em uma conversa direta com a arquiteta, você sai com escopo, prazo e investimento claros — e a entrega acontece na forma certa, na primeira versão.
+        </p>
+      </div>
+
+      {(waUrl || mailUrl) && (
+        <div class="contact-cta-wrap">
+          {waUrl ? (
+            <a href={waUrl} class="btn btn-cta-large" target="_blank" rel="noopener noreferrer">
+              Falar com especialista
+            </a>
+          ) : (
+            <a href={mailUrl!} class="btn btn-cta-large">
+              Falar com especialista
+            </a>
+          )}
+          <p class="contact-cta-sub">Atendimento direto com Fernanda</p>
+        </div>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    --hero-image: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+    --hero-image-mobile: var(--hero-image);
+    background-color: var(--dark);
+    background-image: var(--hero-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 120px 0 100px;
+    overflow: hidden;
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero { background-image: var(--hero-image-mobile); }
+    .hero-overlay {
+      background:
+        /* mobile: gradiente vertical de baixo pra cima (texto fica na metade superior) */
+        linear-gradient(
+          180deg,
+          rgba(7, 11, 17, 0.55) 0%,
+          rgba(7, 11, 17, 0.70) 35%,
+          rgba(7, 11, 17, 0.85) 100%
+        ),
+        radial-gradient(circle at 80% 15%, rgba(var(--brand-glow-rgb), 0.25), transparent 60%);
+    }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      /* feather preto forte da esquerda → transparente à direita */
+      linear-gradient(
+        to right,
+        rgba(7, 11, 17, 0.95) 0%,
+        rgba(7, 11, 17, 0.85) 20%,
+        rgba(7, 11, 17, 0.60) 42%,
+        rgba(7, 11, 17, 0.25) 60%,
+        rgba(7, 11, 17, 0.05) 80%,
+        rgba(7, 11, 17, 0) 100%
+      ),
+      /* leve escurecimento geral pra unificar */
+      linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.35) 100%),
+      /* mancha quente sutil de marca no canto superior direito */
+      radial-gradient(circle at 92% 15%, rgba(var(--brand-glow-rgb), 0.22), transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* sem foto: gradiente original mais forte pra cobrir o fundo padrão */
+  .hero:not(.hero-with-photo) .hero-overlay {
+    background:
+      linear-gradient(135deg, rgba(31, 42, 56, 0.6) 0%, rgba(15, 20, 25, 0.85) 100%),
+      radial-gradient(circle at 80% 20%, rgba(var(--brand-glow-rgb), 0.25), transparent 50%);
+  }
+
+  .hero-text h1 {
+    text-shadow: 0 2px 32px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.4);
+  }
+  .hero-text .lead {
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
+  }
+  .hero-text .eyebrow {
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .hero-with-photo .hero-inner {
+    grid-template-columns: minmax(0, 720px);
+  }
+
+  .hero h1 {
+    color: #fff;
+    margin-bottom: 24px;
+  }
+
+  .hero .lead {
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 40px;
+  }
+
+  .hero .eyebrow { color: var(--secondary-on-dark); }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .hero .btn-secondary {
+    border-color: rgba(255,255,255,0.4);
+    color: #fff;
+  }
+
+  .hero .btn-secondary:hover {
+    background: #fff;
+    color: var(--primary);
+    border-color: #fff;
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.96;
+  }
+
+  .hero-visual .hero-mark {
+    max-width: 360px;
+    width: 100%;
+    filter: drop-shadow(0 24px 64px rgba(0,0,0,0.35));
+  }
+
+  @media (max-width: 900px) {
+    .hero { padding: 96px 0 80px; min-height: 480px; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { order: -1; }
+    .hero-visual .hero-mark { max-width: 200px; }
+  }
+
+  .section-head {
+    margin-bottom: 64px;
+    max-width: 720px;
+  }
+
+  .section.tinted .section-head .lead { color: var(--gray-700); }
+
+  .service-card h3 { color: var(--primary); }
+
+  .card-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--secondary);
+  }
+
+  .reasons-grid { gap: 48px; }
+
+  .reason-num {
+    font-family: var(--display);
+    font-size: 56px;
+    font-weight: 400;
+    color: var(--secondary);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .reason h3 { color: var(--primary); }
+
+  .who-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-bottom: 80px;
+  }
+
+  .who-block-with-photo {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+  }
+
+  .who-text p {
+    margin-bottom: 16px;
+    color: var(--gray-700);
+    font-size: 17px;
+  }
+
+  .about-photo-wrap {
+    aspect-ratio: 4 / 5;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--gray-100);
+    box-shadow: 0 16px 40px rgba(31, 42, 56, 0.12);
+    display: block;
+  }
+  .about-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .mvv-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .lead-quote {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--secondary);
+    border-left: 3px solid var(--secondary);
+    padding-left: 20px;
+    margin-top: 24px;
+  }
+
+  .mvv-card {
+    background: var(--gray-100);
+    border-left: 3px solid var(--secondary);
+    padding: 28px 28px;
+    border-radius: 4px;
+  }
+
+  .mvv-card p {
+    color: var(--gray-900);
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .who-block,
+    .who-block-with-photo { grid-template-columns: 1fr; gap: 40px; }
+    .about-photo-wrap { max-width: 360px; aspect-ratio: 3 / 4; }
+    .mvv-row { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  .post-date {
+    display: block;
+    font-family: var(--body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gray-500);
+    margin-bottom: 12px;
+  }
+
+  .section-head-center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .section-head-center .divider { margin-left: auto; margin-right: auto; }
+
+  .contact-cta-wrap {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .btn-cta-large {
+    font-size: 17px;
+    padding: 20px 40px;
+    background: var(--secondary);
+    color: #fff;
+    border: 1.5px solid var(--secondary);
+    box-shadow: 0 12px 32px rgba(var(--brand-glow-rgb), 0.25);
+    transition: all var(--transition);
+  }
+  .btn-cta-large:hover {
+    background: #fff;
+    color: var(--secondary);
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px rgba(var(--brand-glow-rgb), 0.32);
+  }
+
+  .contact-cta-sub {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--gray-500);
+  }
+
+</style>

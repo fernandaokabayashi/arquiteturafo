@@ -1,0 +1,118 @@
+---
+import { contacts, whatsappUrl, instagramUrl, emailUrl } from '../lib/contacts';
+
+const year = new Date().getFullYear();
+const waUrl = whatsappUrl();
+const igUrl = instagramUrl();
+const mailUrl = emailUrl();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-row">
+      <a href="/" class="footer-logo" aria-label="F.O Arquitetura — Início">
+        <img src="/logo-icone-transparent.svg" alt="F.O Arquitetura" />
+      </a>
+
+      <nav class="footer-nav" aria-label="Navegação do rodapé">
+        <a href="/#sobre">Sobre</a>
+        <a href="/#servicos">Serviços</a>
+        <a href="/blog">Blog</a>
+        <a href="/#contato">Contato</a>
+      </nav>
+
+      <div class="footer-channels">
+        {waUrl && (
+          <a href={waUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            WhatsApp{contacts.whatsapp_display ? ` · ${contacts.whatsapp_display}` : ''}
+          </a>
+        )}
+        {mailUrl && <a href={mailUrl} aria-label="E-mail">{contacts.email}</a>}
+        {igUrl && contacts.instagram_handle && (
+          <a href={igUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            @{contacts.instagram_handle}
+          </a>
+        )}
+        {contacts.linkedin_url && (
+          <a href={contacts.linkedin_url} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            LinkedIn
+          </a>
+        )}
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © {year} F.O Arquitetura — Fernanda Okabayashi. Todos os direitos reservados.
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--dark);
+    color: rgba(255, 255, 255, 0.75);
+    padding: 32px 0 20px;
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+  }
+
+  .footer-logo img {
+    height: 28px;
+    width: auto;
+    display: block;
+    opacity: 0.85;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-channels {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .site-footer a {
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 13.5px;
+    transition: color var(--transition);
+    white-space: nowrap;
+  }
+
+  .site-footer a:hover { color: #fff; }
+
+  .footer-bottom {
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  @media (max-width: 760px) {
+    .site-footer { padding: 28px 0 18px; }
+    .footer-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .footer-logo img { height: 24px; }
+    .footer-nav,
+    .footer-channels {
+      justify-content: flex-start;
+      gap: 18px;
+    }
+  }
+</style>
