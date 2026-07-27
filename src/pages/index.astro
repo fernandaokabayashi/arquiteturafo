@@ -45,7 +45,7 @@ espaços em experiências.
         <p class="lead">
 Arquitetura, interiores, avaliação imobiliária e regularização de obras reunidos em um único escritório. Soluções completas que unem criatividade, excelência técnica e segurança para valorizar o seu patrimônio.
 </p>
-        <  <div class="hero-cta">
+        <div class="hero-cta">
     <a
       href={waUrl ?? mailUrl ?? '#contato'}
       class="btn btn-brand"
@@ -297,9 +297,19 @@ Nosso compromisso é entregar segurança técnica, transparência e soluções p
     text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
   }
 
-  .hero-inner {
+.hero-inner{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:64px;
+    align-items:center;
+    position:relative;
+    z-index:2;
+    width:100%;
+}
+
 .hero-text{
     max-width:720px;
+}
 }
 display: grid;
     grid-template-columns: 1.4fr 1fr;
