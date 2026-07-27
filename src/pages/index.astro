@@ -21,7 +21,10 @@ function cssUrl(s: string) {
 ---
 
 <BaseLayout
-  title="Fernanda Okabayashi Arquitetura — Avaliação imobiliária para bancos · laudo na forma certa, no prazo"  description="Avaliação de imóveis para Caixa, Banco do Brasil e bancos privados — laudo na forma exigida pela instituição, primeira versão, sem retrabalho. Atendimento direto com a arquiteta Fernanda Okabayashi."
+  title="<BaseLayout
+  title="Fernanda Okabayashi | Arquitetura e Interiores"
+  description="Projetos Arquitetônicos, Interiores, Avaliação de Imóveis e INSS de oobras. Soluções completas com atendimento personalizado e excelência técnica."
+>."
 >
   <!-- HERO -->
   <section
@@ -33,18 +36,35 @@ function cssUrl(s: string) {
   >
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="container hero-inner">
-      <div class="hero-text">
-        <span class="eyebrow">
-Arquitetura, Interiores, Avaliação Imobiliária e Regularização de Obras reunidos em um único escritório. Soluções completas com excelência técnica, atendimento personalizado e compromisso com resultados.
-</span>
-       <h1>
-Arquitetura que transforma
-<br/>
-espaços em experiências.
-</h1>
-        <p class="lead">
-Arquitetura, interiores, avaliação imobiliária e regularização de obras reunidos em um único escritório. Soluções completas que unem criatividade, excelência técnica e segurança para valorizar o seu patrimônio.
-</p>
+<div class="hero-text">
+  <span class="eyebrow">
+    FERNANDA OKABAYASHI
+  </span>
+
+  <h1>
+    Arquitetura e interiores<br />
+    com elegância,<br />
+    funcionalidade e identidade.
+  </h1>
+
+  <p class="lead">
+   Projetos inteligentes, avaliações confiáveis e regularização especializada para oferecer mais segurança, praticidade e valorização ao seu imóvel.
+  </p>
+
+  <div class="hero-cta">
+    <a
+      href={waUrl ?? mailUrl ?? '#contato'}
+      class="btn btn-brand"
+      {...(waUrl ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+    >
+      Solicitar orçamento
+    </a>
+
+    <a href="#projetos" class="btn btn-secondary">
+      Conheça os projetos
+    </a>
+  </div>
+</div>
         <div class="hero-cta">
     <a
       href={waUrl ?? mailUrl ?? '#contato'}
