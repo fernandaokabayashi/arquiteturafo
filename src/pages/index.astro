@@ -147,35 +147,58 @@ Arquitetura, interiores, avaliação imobiliária e regularização de obras reu
       </div>
     </section>
   )}
+<!-- CONTATO -->
+<section id="contato" class="section">
+  <div class="container">
 
-  <!-- CONTATO -->
-  <section id="contato" class="section">
-    <div class="container">
-      <div class="section-head section-head-center">
-        <span class="eyebrow">Atendimento direto</span>
-        <h2>Pra cada laudo, uma conversa antes do orçamento.</h2>
-        <div class="divider"></div>
-        <p class="lead">
-          Conte qual o imóvel, qual o banco e qual o prazo. Em uma conversa direta com a arquiteta, você sai com escopo, prazo e investimento claros — e a entrega acontece na forma certa, na primeira versão.
-        </p>
-      </div>
+    <div class="section-head section-head-center">
 
-      {(waUrl || mailUrl) && (
-        <div class="contact-cta-wrap">
-          {waUrl ? (
-            <a href={waUrl} class="btn btn-cta-large" target="_blank" rel="noopener noreferrer">
-              Falar com especialista
-            </a>
-          ) : (
-            <a href={mailUrl!} class="btn btn-cta-large">
-              Falar com especialista
-            </a>
-          )}
-          <p class="contact-cta-sub">Atendimento direto com Fernanda</p>
-        </div>
-      )}
+      <span class="eyebrow">
+        Entre em contato
+      </span>
+
+      <h2>
+        Vamos transformar seu projeto em realidade.
+      </h2>
+
+      <div class="divider"></div>
+
+      <p class="lead">
+        Conte com a Fernanda Okabayashi Arquitetura para desenvolver projetos arquitetônicos,
+        projetos de interiores, avaliações imobiliárias e INSS de obras.
+        Estamos prontos para oferecer soluções personalizadas com excelência
+        técnica, segurança e compromisso em cada etapa.
+      </p>
+
     </div>
-  </section>
+
+    {(waUrl || mailUrl) && (
+      <div class="contact-cta-wrap">
+
+        {waUrl ? (
+          <a
+            href={waUrl}
+            class="btn btn-cta-large"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Solicitar orçamento
+          </a>
+        ) : (
+          <a href={mailUrl!} class="btn btn-cta-large">
+            Solicitar orçamento
+          </a>
+        )}
+
+        <p class="contact-cta-sub">
+          Arquitetura • Interiores • Avaliação Imobiliária • Regularização de Obras
+        </p>
+
+      </div>
+    )}
+
+  </div>
+</section>
 </BaseLayout>
 
 <style>
