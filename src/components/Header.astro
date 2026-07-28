@@ -2,9 +2,9 @@
 import { whatsappUrl, emailUrl } from '../lib/contacts';
 
 const navItems = [
-  { href: '/#topo', label: 'Início' },
   { href: '/#sobre', label: 'Sobre' },
   { href: '/#servicos', label: 'Serviços' },
+  { href: '/#projetos', label: 'Projetos' },
   { href: '/blog', label: 'Blog' },
   { href: '/#contato', label: 'Contato' },
 ];
@@ -20,7 +20,7 @@ const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="F.O Arquitetura — Início">
 <img
-  src="/SUBLOGO0.png"
+    src="/logo-branca.png"
   alt="Fernanda Okabayashi Arquitetura e Interiores"
 />
     </a>
@@ -33,10 +33,7 @@ const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
       </ul>
     </nav>
 
-    {ctaHref && (
-      <a href={ctaHref} class="btn btn-brand btn-cta" target={ctaTarget} rel={ctaRel}>Falar com especialista</a>
-    )}
-
+   
     <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-mobile">
       <span></span><span></span><span></span>
     </button>
@@ -49,7 +46,7 @@ const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
       ))}
       {ctaHref && (
         <li>
-          <a href={ctaHref} class="btn btn-brand" target={ctaTarget} rel={ctaRel}>Falar com especialista</a>
+          <a href={ctaHref} class="btn btn-brand" target={ctaTarget} rel={ctaRel}>WhatsApp</a>
         </li>
       )}
     </ul>
@@ -57,22 +54,30 @@ const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
 </header>
 
 <style>
-  .site-header {
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    border-bottom:1px solid #ececec;
+    box-shadow:0 4px 24px rgba(0,0,0,.05);
+}
     position: sticky;
     top: 0;
     z-index: 100;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--gray-100);
+   border-bottom:1px solid #ececec;
+box-shadow:0 8px 30px rgba(0,0,0,.04);
   }
 
- .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  height: 95px;
+.header-inner{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    align-items:center;
+    height:90px;
+    gap:60px;
 }
 
   .logo {
@@ -80,27 +85,39 @@ const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
     align-items: center;
   }
 
- .logo img {
-    height: 90px;
-    width: auto;
-    object-fit: contain;
+
+@media (max-width: 600px) 
+  .header-inner{
+    display:grid;
+    grid-template-columns:260px 1fr;
+    align-items:center;
+    height:90px;
+    gap:40px;
+} 
+
+  .logo img{
+    max-height:58px;
+  }
+
+.logo img{
+    max-height:70px;
+    width:auto;
+    display:block;
+    object-fit:contain;
+}
+.nav-desktop{
+    width:100%;
 }
 
-@media (max-width: 600px) {
-  .header-inner {
-    height: 80px;
-  }
-
-  .logo img {
-    height: 70px;
-  }
+.nav-desktop ul{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:52px;
+    list-style:none;
+    margin:0;
+    padding:0;
 }
-
-  .nav-desktop ul {
-    display: flex;
-    list-style: none;
-    gap: 32px;
-  }
 
   .nav-desktop a {
     font-size: 14px;
@@ -117,10 +134,23 @@ const ctaRel = waUrl ? 'noopener noreferrer' : undefined;
     border-bottom-color: var(--secondary);
   }
 
-  .btn-cta {
-    font-size: 14px;
-    padding: 12px 24px;
-  }
+.btn-cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:180px;
+    height:54px;
+    border:2px solid var(--secondary);
+    border-radius:8px;
+    background:#fff;
+    color:var(--secondary);
+    font-weight:600;
+}
+
+.btn-cta:hover{
+    background:var(--secondary);
+    color:#fff;
+}
 
   .nav-toggle {
     display: none;

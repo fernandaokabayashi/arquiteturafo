@@ -8,111 +8,174 @@ const mailUrl = emailUrl();
 ---
 
 <footer class="site-footer">
-  <div class="container">
-    <div class="footer-row">
-      <a href="/" class="footer-logo" aria-label="F.O Arquitetura — Início">
-        <img src="/logo-icone-transparent.svg" alt="F.O Arquitetura" />
-      </a>
+  <div class="container footer-content">
 
-      <nav class="footer-nav" aria-label="Navegação do rodapé">
-        <a href="/#sobre">Sobre</a>
-        <a href="/#servicos">Serviços</a>
-        <a href="/blog">Blog</a>
-        <a href="/#contato">Contato</a>
-      </nav>
+    <img
+      src="/SUBLOGO0.png"
+      alt="Fernanda Okabayashi Arquitetura e Interiores"
+      class="footer-logo"
+    />
 
-      <div class="footer-channels">
-        {waUrl && (
-          <a href={waUrl} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            WhatsApp{contacts.whatsapp_display ? ` · ${contacts.whatsapp_display}` : ''}
-          </a>
-        )}
-        {mailUrl && <a href={mailUrl} aria-label="E-mail">{contacts.email}</a>}
-        {igUrl && contacts.instagram_handle && (
-          <a href={igUrl} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            @{contacts.instagram_handle}
-          </a>
-        )}
-        {contacts.linkedin_url && (
-          <a href={contacts.linkedin_url} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            LinkedIn
-          </a>
-        )}
-      </div>
+    <p class="footer-description">
+      Arquitetura • Interiores • Avaliação Imobiliária • INSS de Obras
+    </p>
+
+    <div class="footer-links">
+
+      {waUrl && (
+        <a href={waUrl} target="_blank" rel="noopener noreferrer">
+          WhatsApp
+        </a>
+      )}
+
+      {igUrl && (
+        <a href={igUrl} target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a>
+      )}
+
+      {mailUrl && (
+        <a href={mailUrl}>
+          E-mail
+        </a>
+      )}
+
     </div>
 
     <div class="footer-bottom">
-      © {year} F.O Arquitetura — Fernanda Okabayashi. Todos os direitos reservados.
+      © {year} Fernanda Okabayashi Arquitetura e Interiores.
+      Todos os direitos reservados.
     </div>
+<section class="office-section">
+
+  <div class="container office-grid">
+
+    <div class="office-info">
+
+        <p>
+            COLORADO - PR
+      </p>
+
+      <p>
+        📞 (44) 999901-7322
+      </p>
+
+      <p>
+        ✉️ arquitetura.fo@gmail.com
+      </p>
+
+      <p>
+        📷 @arquiteturafo
+      </p>
+
+     
+    </div>
+
+  </div>
+
+</section>
   </div>
 </footer>
 
 <style>
-  .site-footer {
-    background: var(--dark);
-    color: rgba(255, 255, 255, 0.75);
-    padding: 32px 0 20px;
+.site-footer {
+  background: #ffffff;
+  color: var(--gray-700);
+  padding: 80px 0 40px;
+  border-top: 1px solid #ececec;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 380px;
+  height: auto;
+  margin-bottom: 28px;
+}
+
+.footer-description {
+  max-width: 700px;
+  color: var(--gray-500);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  font-size: 15px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.footer-links a {
+  color: var(--gray-700);
+  font-size: 15px;
+  font-weight: 500;
+  transition: all .3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--secondary);
+}
+
+.footer-bottom {
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 24px;
+  border-top: 1px solid #ececec;
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 13px;
+}
+
+@media (max-width:768px){
+
+  .footer-logo{
+      width:180px;
   }
 
-  .footer-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    padding-bottom: 20px;
+  .footer-links{
+      flex-direction:column;
+      gap:18px;
   }
 
-  .footer-logo img {
-    height: 28px;
-    width: auto;
-    display: block;
-    opacity: 0.85;
-  }
+}
 
-  .footer-nav {
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.footer-links a{
+    color:#fff;
+    font-size:15px;
+    transition:.3s;
+}
 
-  .footer-channels {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-  }
+.footer-links a:hover{
+    color:var(--secondary);
+}
 
-  .site-footer a {
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 13.5px;
-    transition: color var(--transition);
-    white-space: nowrap;
-  }
+.footer-bottom{
+    width:100%;
+    border-top:1px solid rgba(255,255,255,.10);
+    padding-top:25px;
+    font-size:13px;
+    color:rgba(255,255,255,.50);
+}
 
-  .site-footer a:hover { color: #fff; }
+@media(max-width:768px){
 
-  .footer-bottom {
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    text-align: center;
-    font-size: 12.5px;
-    color: rgba(255, 255, 255, 0.5);
-  }
+.footer-logo{
+width:180px;
+}
 
-  @media (max-width: 760px) {
-    .site-footer { padding: 28px 0 18px; }
-    .footer-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 20px;
-    }
-    .footer-logo img { height: 24px; }
-    .footer-nav,
-    .footer-channels {
-      justify-content: flex-start;
-      gap: 18px;
-    }
+.footer-links{
+flex-direction:column;
+gap:18px;
+}
+
   }
 </style>

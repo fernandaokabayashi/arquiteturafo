@@ -32,33 +32,125 @@ function cssUrl(s: string) {
       : ''}
   >
     <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="container hero-inner">
-      <div class="hero-text">
-        <span class="eyebrow">
-Arquitetura, Interiores, Avaliação Imobiliária e Regularização de Obras reunidos em um único escritório. Soluções completas com excelência técnica, atendimento personalizado e compromisso com resultados.
-</span>
-       <h1>
-Arquitetura que transforma
-<br/>
-espaços em experiências.
-</h1>
-        <p class="lead">
-Arquitetura, interiores, avaliação imobiliária e regularização de obras reunidos em um único escritório. Soluções completas que unem criatividade, excelência técnica e segurança para valorizar o seu patrimônio.
-</p>
-        <div class="hero-cta">
+    <div class="container hero-simple">
+
+  <span class="eyebrow">
+    Fernanda Okabayashi Arquitetura e Interiores
+  </span>
+
+  <h1>
+    Arquitetura que valoriza
+    <br />
+    o seu patrimônio.
+  </h1>
+
+  <p class="lead">
+    Projetos Arquitetônicos, Projetos de Interiores, Avaliações de Imóveis -  Credenciadas pela Caixa Econômica
+    e Banco do Brasil e INSS de obras com excelência técnica.
+  </p>
+
+  <div class="hero-cta">
     <a
       href={waUrl ?? mailUrl ?? '#contato'}
       class="btn btn-brand"
       {...(waUrl ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
     >
-      Solicitar orçamento
+      Falar com especialista
     </a>
+  </div>
 
-    <a href="#servicos" class="btn btn-secondary">
+</div>
+
+    <a href="#servicos" class="
+    tn btn-secondary">
       Conheça nossos serviços
     </a>
   </div>
 </div>
+
+<!-- PROJETOS -->
+<section class="projects-showcase">
+
+  <div class="container">
+
+    <div class="section-head text-center">
+      <span class="eyebrow">Portfólio</span>
+      <h2>Projetos em Destaque</h2>
+      <p class="lead">
+        Arquitetura pensada para unir funcionalidade, estética e valorização do patrimônio.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto01.png" alt="Projeto 01">
+    <div class="project-overlay">
+      <h3>Projeto Residencial</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto02.png" alt="Projeto 02">
+    <div class="project-overlay">
+      <h3>Área Gourmet</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto03.jpeg" alt="Projeto 03">
+    <div class="project-overlay">
+      <h3>Suíte</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto04.jpg" alt="Projeto 04">
+    <div class="project-overlay">
+      <h3>Banheiro</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto05.jpg" alt="Projeto 05">
+    <div class="project-overlay">
+      <h3>Quarto Menina</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto06.png" alt="Projeto 06">
+    <div class="project-overlay">
+      <h3>Lavabo</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto07.png" alt="Projeto 07">
+    <div class="project-overlay">
+      <h3>Fachada Residencial</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto08.png" alt="Projeto 08">
+    <div class="project-overlay">
+      <h3>Consultório</h3>
+    </div>
+  </article>
+
+  <article class="project-card">
+    <img src="/images/projetos/projeto09.png" alt="Projeto 09">
+    <div class="project-overlay">
+      <h3>Projeto Comercial</h3>
+    </div>
+  </article>
+
+</div>
+
+  </div>
+
+</section>
 
   <!-- SOBRE -->
   <section id="sobre" class="section">
@@ -69,10 +161,10 @@ Arquitetura, interiores, avaliação imobiliária e regularização de obras reu
           <h2>Fernanda Okabayashi</h2>
           <div class="divider"></div>
           <p>
-            A <strong>Fernanda OKabayashi Arquitetura e Interiores </strong> é a marca-assinatura da arquiteta <strong>Fernanda Okabayashi</strong> — organizada, direta, voltada Porjetos Arquitetônicos e Interiores, avaliações imobiliárias em prazo curto para instituições financeiras e redução de INSS de obras
+            A <strong>Fernanda OKabayashi Arquitetura e Interiores </strong> é a marca-assinatura da arquiteta <strong>Fernanda Okabayashi</strong> — organizada, direta, voltada Projetos Arquitetônicos e Interiores, Avaliações Imobiliárias e redução de INSS de obras
           </p>
           <p>
-            Atendemos <strong>Caixa Econômica</strong>, <strong>Banco do Brasil</strong> e <strong>bancos privados</strong> que aceitam laudos credenciados — com a organização e a clareza de quem trata cada laudo como peça única.
+            Atendemos <strong>Caixa Econômica</strong> e <strong>Banco do Brasil</strong> e Avaliações Particulares, com a organização e a clareza de quem trata cada laudo como peça única.
           </p>
           <p class="lead-quote">
             "Ordem e clareza em cada laudo."
@@ -84,8 +176,9 @@ Arquitetura, interiores, avaliação imobiliária e regularização de obras reu
             <img src={about.desktop} alt="Fernanda Okabayashi" class="about-photo" />
           </picture>
         )}
-      </div>
-
+   </div>
+</div>
+</section>
     <!-- SERVIÇOS -->
   <section id="servicos" class="section tinted">
     <div class="container">
@@ -194,73 +287,45 @@ Arquitetura, interiores, avaliação imobiliária e regularização de obras reu
   .hero {
     --hero-image: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
     --hero-image-mobile: var(--hero-image);
-    background-color: var(--dark);
+   background: #ffffff;
+color: var(--gray-900);
     background-image: var(--hero-image);
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #fff;
-    padding: 120px 0 100px;
-    overflow: hidden;
-    position: relative;
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-  }
+    background-position: center 25%;
+    background-repeat: no-repeat;}
+ .hero{
+    background:#fff;
+    padding:120px 0 60px;
+    min-height:auto;
+    color:#222;
+}
 
-  @media (max-width: 768px) {
-    .hero { background-image: var(--hero-image-mobile); }
-    .hero-overlay {
-      background:
-        /* mobile: gradiente vertical de baixo pra cima (texto fica na metade superior) */
-        linear-gradient(
-          180deg,
-          rgba(7, 11, 17, 0.55) 0%,
-          rgba(7, 11, 17, 0.70) 35%,
-          rgba(7, 11, 17, 0.85) 100%
-        ),
-        radial-gradient(circle at 80% 15%, rgba(var(--brand-glow-rgb), 0.25), transparent 60%);
-    }
-  }
+.hero-overlay{
+    display:none;
+}
 
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background:
-      /* feather preto forte da esquerda → transparente à direita */
-      linear-gradient(
-        to right,
-        rgba(7, 11, 17, 0.95) 0%,
-        rgba(7, 11, 17, 0.85) 20%,
-        rgba(7, 11, 17, 0.60) 42%,
-        rgba(7, 11, 17, 0.25) 60%,
-        rgba(7, 11, 17, 0.05) 80%,
-        rgba(7, 11, 17, 0) 100%
-      ),
-      /* leve escurecimento geral pra unificar */
-      linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.35) 100%),
-      /* mancha quente sutil de marca no canto superior direito */
-      radial-gradient(circle at 92% 15%, rgba(var(--brand-glow-rgb), 0.22), transparent 50%);
-    pointer-events: none;
-    z-index: 1;
-  }
+.hero-simple{
+    max-width:760px;
+}
 
-  /* sem foto: gradiente original mais forte pra cobrir o fundo padrão */
-  .hero:not(.hero-with-photo) .hero-overlay {
-    background:
-      linear-gradient(135deg, rgba(31, 42, 56, 0.6) 0%, rgba(15, 20, 25, 0.85) 100%),
-      radial-gradient(circle at 80% 20%, rgba(var(--brand-glow-rgb), 0.25), transparent 50%);
-  }
+.hero h1{
+    color:#111;
+    font-size:clamp(54px,7vw,90px);
+    line-height:1.05;
+    margin-bottom:28px;
+}
 
-  .hero-text h1 {
-    text-shadow: 0 2px 32px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.4);
-  }
-  .hero-text .lead {
-    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.55);
-  }
-  .hero-text .eyebrow {
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-  }
+.hero .lead{
+    color:#555;
+    max-width:620px;
+    font-size:20px;
+    margin-bottom:40px;
+}
+
+.hero .eyebrow{
+    color:var(--secondary);
+    margin-bottom:18px;
+}
 
 .hero-inner{
     display:grid;
@@ -275,7 +340,8 @@ Arquitetura, interiores, avaliação imobiliária e regularização de obras reu
 .hero-text{
     max-width:720px;
 }
-}
+
+{ 
 display: grid;
     grid-template-columns: 1.4fr 1fr;
     gap: 64px;
@@ -288,22 +354,6 @@ display: grid;
   .hero-with-photo .hero-inner {
     grid-template-columns: minmax(0, 720px);
   }
-
-  .hero h1{
-    color:#fff;
-    margin-bottom:28px;
-    font-size:clamp(54px,7vw,92px);
-    line-height:1.05;
-}
-
-.hero .lead{
-    color:rgba(255,255,255,.90);
-    font-size:22px;
-    max-width:620px;
-    margin-bottom:42px;
-}
-
-  .hero .eyebrow { color: var(--secondary-on-dark); }
 
   .hero-cta {
     display: flex;
@@ -486,10 +536,129 @@ display: grid;
     box-shadow: 0 18px 40px rgba(var(--brand-glow-rgb), 0.32);
   }
 
-  .contact-cta-sub {
-    margin-top: 16px;
-    font-size: 14px;
-    color: var(--gray-500);
-  }
+ .contact-cta-sub{
+    margin-top:16px;
+    font-size:14px;
+    color:var(--gray-500);
+}
 
-</style>
+/* ===========================
+   PROJETOS
+=========================== */
+
+.projects-showcase{
+    background:#fff;
+    padding:110px 0;
+}
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    margin-top:50px;
+}
+
+.project-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:18px;
+    cursor:pointer;
+    background:#f3f3f3;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.project-card img{
+    width:100%;
+    height:360px;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.project-card:hover img{
+    transform:scale(1.08);
+}
+
+.project-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    padding:24px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.65),
+        rgba(0,0,0,0)
+    );
+    opacity:0;
+    transition:.35s;
+}
+
+.project-card:hover .project-overlay{
+    opacity:1;
+}
+
+.project-overlay h3{
+    color:white;
+    font-size:24px;
+    font-family:'Playfair Display',serif;
+    margin:0;
+}
+
+@media(max-width:900px){
+
+.projects-grid{
+    grid-template-columns:1fr;
+}
+
+.project-card img{
+    height:280px;
+}
+
+}
+.project-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:flex-end;
+    padding:28px;
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,.72),
+        rgba(0,0,0,.15),
+        transparent
+    );
+
+    opacity:0;
+    transition:.35s;
+}
+
+.project-card:hover .project-overlay{
+    opacity:1;
+}
+
+.project-info{
+    transform:translateY(20px);
+    transition:.35s;
+}
+
+.project-card:hover .project-info{
+    transform:translateY(0);
+}
+
+.project-info span{
+    display:inline-block;
+    color:#d9b97c;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-size:12px;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.project-info h3{
+    color:#fff;
+    font-family:'Playfair Display', serif;
+    font-size:28px;
+    margin:0;
+}

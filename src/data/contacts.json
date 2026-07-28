@@ -5,8 +5,10 @@
   "email": "contato@foarquitetura.com.br",
   "instagram_handle": "arquiteturafo",
   "linkedin_url": "",
-  "hero_image_url": "https://img.nsctotal.com.br/wp-content/uploads/2022/10/predio-EUA_0-1.jpg",
-  "hero_image_url_mobile": "https://img.nsctotal.com.br/wp-content/uploads/2022/10/predio-EUA_0-1.jpg",
-  "about_photo_url": "https://s2.glbimg.com/cFR2YZ6FFVkq58K_BbkVmfsGK0QIIKyMAwRVHJ6roVpIoz-HdGixxa_8qOZvMp3w/e.glbimg.com/og/ed/f/original/2013/08/01/1_8.jpg",
-  "about_photo_url_mobile": "https://s2.glbimg.com/cFR2YZ6FFVkq58K_BbkVmfsGK0QIIKyMAwRVHJ6roVpIoz-HdGixxa_8qOZvMp3w/e.glbimg.com/og/ed/f/original/2013/08/01/1_8.jpg"
+
+  "hero_image_url": "/images/hero/hero.png",
+  "hero_image_url_mobile": "/images/hero/hero.png",
+
+  "about_photo_url": "/images/equipe/fernanda.png",
+  "about_photo_url_mobile": "/images/equipe/fernanda.png"
 }
