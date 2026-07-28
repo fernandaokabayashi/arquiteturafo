@@ -130,18 +130,7 @@ Arquitetura, interiores, avaliação imobiliária e regularização de obras reu
           <p class="lead">Conteúdo autoral sobre avaliação imobiliária, laudos técnicos e financiamento bancário — escrito pela arquiteta a partir do que se vê na prática com Caixa, BB e bancos privados.</p>
         </div>
 
-        <div class="grid grid-3">
-          {posts.map((post) => (
-            <a href={`/blog/${post.id}`} class="card">
-              <span class="post-date">{post.data.pubDate.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}</span>
-              <h3>{post.data.title}</h3>
-              <p>{post.data.description}</p>
-              <span class="card-link">Ler →</span>
-            </a>
-          ))}
-        </div>
-
-        <div class="text-center" style="margin-top: 48px;">
+            <div class="text-center" style="margin-top: 48px;">
           <a href="/blog" class="btn btn-secondary">Ver todos os posts</a>
         </div>
       </div>
