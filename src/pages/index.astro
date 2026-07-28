@@ -51,13 +51,14 @@ function cssUrl(s: string) {
 
   <div class="hero-cta">
     <a
-      href={waUrl ?? mailUrl ?? '#contato'}
-      class="btn btn-brand"
-      {...(waUrl ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-    >
-      Falar com especialista
-    </a>
-  </div>
+    <a
+  href="https://wa.me/5544999017322?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
+  class="btn btn-cta-large"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Solicitar orçamento
+</a>
 
 </div>
 
@@ -69,7 +70,7 @@ function cssUrl(s: string) {
 </div>
 
 <!-- PROJETOS -->
-<section class="projects-showcase">
+<section id="projetos" class="projects-showcase">
 
   <div class="container">
 
