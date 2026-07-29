@@ -1,123 +1,515 @@
----
+
+
+
+
+
+ba336fc2-5a2a-48d7-9395-c8fda2ce855b.png
+
+286859e8-dba7-4768-9803-d73a94fe3921.png
+
+51e25641-a639-4cc8-ad8a-c8b7e4e73595.png
+
+4724d1a7-a7b1-4754-8b19-fbbb61bebd85.png
+
+90e649a7-746c-4e3e-8d17-1b4ed5e893fe.png
+
+
+Texto colado(12).txt
+Documento
+
+92c1c0c3-5b4d-484e-9511-a9640f2cbd91.png
+vamos tracar essa frase e coloca uma foto de um projeto
+
+Perfeito! Vamos fazer como um projeto profissional: primeiro deixamos a Hero impecável e só depois seguimos para as outras seções.
+
+Objetivo
+Transformar isso:
+
+┌───────────────────────────────┐
+
+Imagem de fundo escura
+
+Arquitetura que
+valoriza
+o seu patrimônio.
+
+Texto...
+
+└───────────────────────────────┘
+Em algo assim:
+
+┌──────────────────────────────────────────────────────────────────────┐
+
+LOGO                                      Menu
+
+Fernanda Okabayashi
+Arquitetura e Interiores
+
+Arquitetura
+que transforma
+espaços.
+
+Projetos arquitetônicos, interiores,
+avaliações imobiliárias e
+regularização de obras.
+
+[ Solicitar orçamento ]     [ Ver projetos ]
+
+
+                               ┌───────────────────────┐
+                               │                       │
+                               │                       │
+                               │   FOTO DO PROJETO    │
+                               │                       │
+                               │                       │
+                               └───────────────────────┘
+
+└──────────────────────────────────────────────────────────────────────┘
+Plano de execução
+✅ Etapa 1 — Reestruturar o HTML
+Remover a imagem como plano de fundo.
+
+Criar duas colunas (hero-content e hero-image).
+
+Atualizar o texto da Hero.
+
+Inserir os novos botões.
+
+✅ Etapa 2 — Refazer o CSS
+Fundo branco.
+
+Grid de duas colunas.
+
+Novo tamanho da tipografia.
+
+Espaçamento generoso.
+
+Imagem com bordas arredondadas e sombra.
+
+✅ Etapa 3 — Inserir a foto do projeto
+Adicionar a imagem em public/images/.
+
+Ajustar o enquadramento (object-fit: cover).
+
+Testar diferentes fotos para escolher a mais impactante.
+
+✅ Etapa 4 — Responsividade
+No celular, reorganizar os elementos em uma única coluna.
+
+Ajustar o tamanho do título e da imagem para manter uma boa leitura.
+
+O que eu sugiro fazer agora
+Em vez de ir alterando pequenos trechos do index.astro, eu prefiro reescrever toda a seção Hero. O resultado fica mais limpo, mais fácil de manter e evita conflitos com o CSS antigo (especialmente porque identificamos regras duplicadas e uma estrutura que já estava ficando difícil de evoluir).
+
+Depois, atualizamos o CSS da Hero para combinar exatamente com essa nova estrutura.
+
+Vai ficar com aparência de um site de escritório de arquitetura premium, sem perder a identidade que você já construiu.
+
+Próximo passo: envie o conteúdo atual do seu src/pages/index.astro (ou pelo menos a seção <section class="hero">...</section> e o CSS correspondente), e eu devolvo o código completo já pronto para substituir, sem quebrar o restante do site.
+
+
+
+Texto colado(13).txt
+Documento
+
+Perfeito! Analisei o arquivo que você enviou e já encontrei exatamente o que estava causando dificuldade para evoluir a Hero. 
+
+
+A boa notícia é que não precisamos refazer o site inteiro. Vamos apenas substituir a Hero.
+
+O que vamos remover
+Hoje você tem:
+
+imagem como background da seção;
+
+hero-overlay;
+
+hero-with-photo;
+
+.simple;
+
+.inner;
+
+.visual;
+
+CSS duplicado;
+
+um bloco CSS inválido ({ display:grid... } sem seletor), que pode causar problemas na compilação. 
+
+
+O que vamos criar
+┌───────────────────────────────────────────────────────────────┐
+
+LOGO                                    MENU
+
+Fernanda Okabayashi
+Arquitetura e Interiores
+
+Arquitetura
+que transforma
+espaços.
+
+Projetos arquitetônicos,
+interiores,
+avaliações imobiliárias e
+regularização de obras.
+
+[ Solicitar orçamento ]
+[ Ver projetos ]
+
+                           ╭────────────────────╮
+                           │                    │
+                           │                    │
+                           │   FOTO GRANDE      │
+                           │                    │
+                           │                    │
+                           ╰────────────────────╯
+
+└───────────────────────────────────────────────────────────────┘
+Minha proposta
+Vamos fazer uma Hero realmente premium.
+
+Lado esquerdo
+Nome do escritório
+
+Título grande
+
+Texto menor
+
+Dois botões
+
+Lado direito
+Uma foto ocupando quase toda a altura da tela.
+
+Com:
+
+bordas 24px
+
+sombra suave
+
+efeito hover
+
+aspecto editorial
+
+Título
+Arquitetura
+que transforma
+espaços.
+Fonte Vonca.
+
+Bem grande.
+
+Foto
+Em vez de usar uma imagem como fundo, vamos usar:
+
+<div class="hero-image">
+    <img src="/images/projetos/projeto01.png" />
+</div>
+Depois fica muito fácil trocar para qualquer projeto.
+
+Botões
+Principal
+
+Solicitar orçamento
+
+Secundário
+
+Ver projetos
+
+Visual
+Fundo totalmente branco.
+
+⬜⬜⬜⬜⬜⬜⬜⬜⬜
+
+Texto           Foto
+
+⬜⬜⬜⬜⬜⬜⬜⬜⬜
+Muito mais sofisticado.
+
+Minha sugestão
+Em vez de usar uma única foto, podemos deixar a Hero ainda mais elegante com um carrossel automático usando 3 dos seus melhores projetos:
+
+Sala integrada
+
+Área gourmet
+
+Fachada
+
+A imagem muda suavemente a cada poucos segundos, mantendo a página limpa, mas mostrando a qualidade do seu portfólio logo na primeira impressão.
+
+Acredito que esse detalhe deixará o site com aparência de um escritório de arquitetura de alto padrão.
+
+
+ok
+
+Perfeito! Então vamos fazer como uma agência faria: uma etapa de cada vez.
+
+Etapa 1 — Substituir a Hero (HTML)
+No seu arquivo src/pages/index.astro, substitua toda a seção Hero (da linha onde começa <!-- HERO --> até antes de <!-- PROJETOS -->) por este código:
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="container hero-grid">
+
+    <div class="hero-content">
+
+      <span class="eyebrow">
+        Fernanda Okabayashi Arquitetura e Interiores
+      </span>
+
+      <h1>
+        Arquitetura<br />
+        que transforma<br />
+        espaços.
+      </h1>
+
+      <p class="hero-description">
+        Projetos arquitetônicos, projetos de interiores,
+        avaliações imobiliárias credenciadas pela Caixa Econômica Federal
+        e Banco do Brasil, além da regularização de INSS de obras.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a
+          href={waUrl}
+          class="btn btn-cta-large"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Solicitar orçamento
+        </a>
+
+        <a
+          href="#projetos"
+          class="btn btn-secondary"
+        >
+          Ver projetos
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="hero-image">
+
+      <img
+        src="/images/projetos/projeto01.png"
+        alt="Projeto Residencial"
+      />
+
+    </div>
+
+  </div>
+</section>
+O que isso faz
+✔ Remove o fundo escuro.
+
+✔ Remove o overlay.
+
+✔ Remove a imagem como background.
+
+✔ Cria duas colunas.
+
+✔ Facilita trocar a foto depois.
+
+✔ Deixa o HTML muito mais organizado.
+
+Depois
+Na próxima etapa vamos substituir todo o CSS da Hero por um layout premium com:
+
+imagem grande;
+
+sombra elegante;
+
+bordas arredondadas;
+
+tipografia Vonca valorizada;
+
+animação suave;
+
+responsividade perfeita.
+
+Não altere o CSS ainda. Primeiro substitua apenas o HTML, execute o projeto (npm run dev) e me diga se ele compilou corretamente. Depois partimos para a segunda etapa, que é a transformação visual da Hero.
+
+
 export const prerender = true;
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro';
+import { contacts, whatsappUrl, emailUrl, heroImages, aboutPhotos } from '../lib/contacts';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
----
+.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+.slice(0, 3);
+
+const waUrl = whatsappUrl();
+const mailUrl = emailUrl();
+const hero = heroImages();
+const about = aboutPhotos();
 
 <BaseLayout
-  title="Blog — F.O Arquitetura"
-  description="Conteúdo técnico autoral sobre avaliação imobiliária, vistoria e decisões patrimoniais — escrito pela arquiteta Fernanda."
->
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">Conteúdo técnico</span>
-      <h1>Blog.</h1>
-      <p class="lead">
-        Conteúdo autoral sobre avaliação imobiliária, vistoria e decisões patrimoniais — escrito pela arquiteta sobre o que vê na prática.
-      </p>
+title= "Fernanda Okabayashi Arquitetura e Interiores | Avaliação de Imóveis | INSS de obras"
+
+
+
+<!-- HERO -->
+
+<section class={`hero ${hero ? 'hero-with-photo' : ''}`} id="topo" style={hero ? `--hero-image: url('${cssUrl(hero.desktop)}'); --hero-image-mobile: url('${cssUrl(hero.mobile)}');` : ''} > <div class="hero-overlay" aria-hidden="true"></div> <div class="container simple">
+
+<span class="eyebrow"> Fernanda Okabayashi Arquitetura e Interiores </span>
+
+<h1> Arquitetura que valoriza <br /> o seu patrimônio. </h1>
+
+<p class="lead"> Projetos Arquitetônicos, Projetos de Interiores, Avaliações de Imóveis - Credenciadas pela Caixa Econômica e Banco do Brasil e INSS de obras com excelência técnica. </p>
+
+<div class="cta"> <a <a href="https://wa.me/5544999017322?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="btn btn-cta-large" target="_blank" rel="noopener noreferrer" > Solicitar orçamento </a>
+
+</div>
+
+<a href="#servicos" class="
+tn btn-secondary">
+  Conheça nossos serviços
+</a>
+</div> </div>
+
+<!-- PROJETOS -->
+
+<section id="projetos" class="projects-showcase">
+
+<div class="container">
+
+<div class="section-head text-center">
+  <span class="eyebrow">Portfólio</span>
+  <h2>Projetos em Destaque</h2>
+  <p class="lead">
+    Arquitetura pensada para unir funcionalidade, estética e valorização do patrimônio.
+  </p>
+</div>
+
+<div class="projects-grid">
+<article class="project-card"> <img src="/images/projetos/projeto01.png" alt="Projeto 01"> <div class="project-overlay"> <h3>Projeto Residencial</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto02.png" alt="Projeto 02"> <div class="project-overlay"> <h3>Área Gourmet</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto03.jpeg" alt="Projeto 03"> <div class="project-overlay"> <h3>Suíte</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto04.jpg" alt="Projeto 04"> <div class="project-overlay"> <h3>Banheiro</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto05.jpg" alt="Projeto 05"> <div class="project-overlay"> <h3>Quarto Menina</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto06.png" alt="Projeto 06"> <div class="project-overlay"> <h3>Lavabo</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto07.png" alt="Projeto 07"> <div class="project-overlay"> <h3>Fachada Residencial</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto08.png" alt="Projeto 08"> <div class="project-overlay"> <h3>Consultório</h3> </div> </article>
+
+<article class="project-card"> <img src="/images/projetos/projeto09.png" alt="Projeto 09"> <div class="project-overlay"> <h3>Projeto Comercial</h3> </div> </article>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SOBRE -->
+
+<section id="sobre" class="section"> <div class="container"> <div class={`who-block ${about ? 'who-block-with-photo' : ''}`}> <div class="who-text"> <span class="eyebrow">Quem atende você</span> <h2>Fernanda Okabayashi</h2> <div class="divider"></div> <p> A <strong>Fernanda OKabayashi Arquitetura e Interiores </strong> é a marca-assinatura da arquiteta <strong>Fernanda Okabayashi</strong> — organizada, direta, voltada Projetos Arquitetônicos e Interiores, Avaliações Imobiliárias e redução de INSS de obras </p> <p> Atendemos <strong>Caixa Econômica</strong> e <strong>Banco do Brasil</strong> e Avaliações Particulares, com a organização e a clareza de quem trata cada laudo como peça única. </p> <p class="lead-quote"> "Ordem e clareza em cada laudo." </p> </div> {about && ( <picture class="about-photo-wrap"> <source srcset={about.mobile} media="(max-width: 768px)" /> <img src={about.desktop} alt="Fernanda Okabayashi" class="about-photo" /> </picture> )} </div> </div> </section> <!-- SERVIÇOS --> <section id="servicos" class="section tinted"> <div class="container"> <div class="section-head"> <span class="eyebrow">O que entregamos</span> <h2>Serviços</h2> <div class="divider"></div> <p class="lead">Projetos inteligentes, avaliações confiáveis e regularização especializada para oferecer mais segurança, praticidade e valorização ao seu imóvel.</p> </div>
+
+  <div class="grid grid-2">
+    <div class="card service-card">
+      <h3>Projetos  Arquitetônicos </h3>
+      <p>Projetos residenciais e comerciais desenvolvidos para transformar necessidades em espaços funcionais, modernos e personalizados, conciliando estética, conforto e viabilidade técnica.</p>
     </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      {posts.length === 0 ? (
-        <div class="empty">
-          <p>Os primeiros posts estão a caminho.</p>
-        </div>
-      ) : (
-        <div class="posts-list">
-          {posts.map((post) => (
-            <article class="post-item">
-              <div class="post-meta">
-                <time datetime={post.data.pubDate.toISOString()}>
-                  {post.data.pubDate.toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}
-                </time>
-                {post.data.tags.length > 0 && (
-                  <span class="post-tags">{post.data.tags.slice(0, 2).join(' · ')}</span>
-                )}
-              </div>
-              <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
-              <p>{post.data.description}</p>
-              <a href={`/blog/${post.id}`} class="post-link">Ler artigo →</a>
-            </article>
-          ))}
-        </div>
-      )}
+    <div class="card service-card">
+      <h3>Laudos avaliação de imóveis</h3>
+      <p>Realizamos avaliações imobiliárias seguindo as normas da ABNT e os critérios das instituições financeiras, oferecendo laudos técnicos confiáveis para financiamentos, compra e venda, inventários e diversas outras finalidades..</p>
     </div>
-  </section>
-</BaseLayout>
+    <div class="card service-card">
+      <h3>Projeto de Interiores</h3>
+      <p>Criamos ambientes exclusivos que refletem o estilo de cada cliente, com planejamento completo de layout, iluminação, marcenaria e acabamentos, proporcionando beleza, funcionalidade e bem-estar.</p>
+    </div>
+    <div class="card service-card">
+      <h3>INSS de obras </h3>
+      <p>Regularização de INSS de Obras para Pessoa Física e Pessoa Jurídica, com acompanhamento técnico especializado.</p>
+    </div>
+  </div>
+</div>
+</section>
 
-<style>
-  .page-hero {
-    padding: 80px 0 56px;
-    background: var(--gray-100);
-    border-bottom: 1px solid var(--gray-300);
-  }
 
-  .page-hero h1 { color: var(--primary); margin: 8px 0 16px; }
-  .page-hero .lead { color: var(--gray-700); margin: 0; max-width: 640px; }
 
-  .posts-list {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    max-width: 820px;
-  }
+<!-- BLOG PREVIEW -->
 
-  .post-item {
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--gray-100);
-  }
+{posts.length > 0 && (
+<section class="section tinted">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">Conteúdo técnico</span>
+<h2>Do blog</h2>
+<div class="divider"></div>
+<p class="lead">Conteúdo autoral sobre avaliação imobiliária, laudos técnicos e financiamento bancário — escrito pela arquiteta a partir do que se vê na prática com Caixa, BB e bancos privados.</p>
+</div>
 
-  .post-item:last-child { border-bottom: 0; }
+        <div class="text-center" style="margin-top: 48px;">
+      <a href="/blog" class="btn btn-secondary">Ver todos os posts</a>
+    </div>
+  </div>
+</section>
+)}
 
-  .post-meta {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--gray-700);
-    margin-bottom: 12px;
-  }
+<!-- CONTATO -->
 
-  .post-tags { color: var(--secondary); }
+<section id="contato" class="section"> <div class="container">
 
-  .post-item h2 {
-    font-size: clamp(24px, 3vw, 34px);
-    margin-bottom: 12px;
-  }
+<div class="section-head section-head-center">
 
-  .post-item h2 a {
-    color: var(--primary);
-  }
+  <span class="eyebrow">
+    Entre em contato
+  </span>
 
-  .post-item h2 a:hover {
-    color: var(--secondary);
-  }
+  <h2>
+    Vamos transformar seu projeto em realidade.
+  </h2>
 
-  .post-item p {
-    color: var(--gray-700);
-    font-size: 17px;
-    margin-bottom: 16px;
-  }
+  <div class="divider"></div>
 
-  .post-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--secondary);
-    letter-spacing: 0.3px;
-  }
+  <p class="lead">
+    Conte com a Fernanda Okabayashi Arquitetura para desenvolver projetos arquitetônicos,
+    projetos de interiores, avaliações imobiliárias e INSS de obras.
+    Estamos prontos para oferecer soluções personalizadas com excelência
+    técnica, segurança e compromisso em cada etapa.
+  </p>
 
-  .empty {
-    text-align: center;
-    padding: 64px 0;
-    color: var(--gray-500);
-  }
-</style>
+</div>
+
+{(waUrl || mailUrl) && (
+  <div class="contact-cta-wrap">
+
+    {waUrl ? (
+      <a
+        href={waUrl}
+        class="btn btn-cta-large"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Solicitar orçamento
+      </a>
+    ) : (
+      <a href={mailUrl!} class="btn btn-cta-large">
+        Solicitar orçamento
+      </a>
+    )}
+
+    <p class="contact-cta-sub">
+      Arquitetura • Interiores • Avaliação Imobiliária • Regularização de Obras
+    </p>
+
+  </div>
+)}
+</div> </section> </BaseLayout>
+
+<style> .hero { --image: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%); --image-mobile: var(--image); background: #ffffff; color: var(--gray-900); background-image: var(--image); background-size: cover; background-position: center 25%; background-repeat: no-repeat;} .hero{ background:#fff; padding:120px 0 60px; min-height:auto; color:#222; } .overlay{ display:none; } .simple{ max-width:760px; } .hero h1{ color:#111; font-size:clamp(54px,7vw,90px); line-height:1.05; margin-bottom:28px; } .hero .lead{ color:#555; max-width:620px; font-size:20px; margin-bottom:40px; } .hero .eyebrow{ color:var(--secondary); margin-bottom:18px; } .inner{ display:grid; grid-template-columns:1.4fr 1fr; gap:64px; align-items:center; position:relative; z-index:2; width:100%; } { display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: center; position: relative; z-index: 2; width: 100%; } .with-photo .inner { grid-template-columns: minmax(0, 720px); } .cta { display: flex; gap: 16px; flex-wrap: wrap; } .hero .btn-secondary { border-color: rgba(255,255,255,0.4); color: #fff; } .hero .btn-secondary:hover { background: #fff; color: var(--primary); border-color: #fff; } .visual { display: flex; justify-content: center; align-items: center; opacity: 0.96; } .visual .mark { max-width: 360px; width: 100%; filter: drop-shadow(0 24px 64px rgba(0,0,0,0.35)); } @media (max-width: 900px) { .hero { padding: 96px 0 80px; min-height: 480px; } .inner { grid-template-columns: 1fr; } .visual { order: -1; } .visual .mark { max-width: 200px; } } .section-head { margin-bottom: 64px; max-width: 720px; } .section.tinted .section-head .lead { color: var(--gray-700); } .service-card h3 { color: var(--primary); } .card-link { display: inline-block; margin-top: 16px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; color: var(--secondary); } .reasons-grid { gap: 48px; } .reason-num { font-family: var(--display); font-size: 56px; font-weight: 400; color: var(--secondary); line-height: 1; margin-bottom: 12px; } .reason h3 { color: var(--primary); } .who-block { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; margin-bottom: 80px; } .who-block-with-photo { grid-template-columns: 1.2fr 1fr; gap: 80px; } .who-text p { margin-bottom: 16px; color: var(--gray-700); font-size: 17px; } .about-photo-wrap { aspect-ratio: 4 / 5; border-radius: 14px; overflow: hidden; background: var(--gray-100); box-shadow: 0 16px 40px rgba(31, 42, 56, 0.12); display: block; } .about-photo { width: 100%; height: 100%; object-fit: cover; display: block; } .mvv-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; } .lead-quote { font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--secondary); border-left: 3px solid var(--secondary); padding-left: 20px; margin-top: 24px; } .mvv-card { background: var(--gray-100); border-left: 3px solid var(--secondary); padding: 28px 28px; border-radius: 4px; } .mvv-card p { color: var(--gray-900); font-size: 15px; margin: 0; line-height: 1.6; } @media (max-width: 900px) { .who-block, .who-block-with-photo { grid-template-columns: 1fr; gap: 40px; } .about-photo-wrap { max-width: 360px; aspect-ratio: 3 / 4; } .mvv-row { grid-template-columns: 1fr; gap: 16px; } } .post-date { display: block; font-family: var(--body); font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-500); margin-bottom: 12px; } .section-head-center { margin-left: auto; margin-right: auto; text-align: center; } .section-head-center .divider { margin-left: auto; margin-right: auto; } .contact-cta-wrap { text-align: center; margin-bottom: 48px; } .btn-cta-large { font-size: 17px; padding: 20px 40px; background: var(--secondary); color: #fff; border: 1.5px solid var(--secondary); box-shadow: 0 12px 32px rgba(var(--brand-glow-rgb), 0.25); transition: all var(--transition); } .btn-cta-large:hover { background: #fff; color: var(--secondary); border-color: #fff; transform: translateY(-2px); box-shadow: 0 18px 40px rgba(var(--brand-glow-rgb), 0.32); } .contact-cta-sub{ margin-top:16px; font-size:14px; color:var(--gray-500); } /* =========================== PROJETOS =========================== */ .projects-showcase{ background:#fff; padding:110px 0; } .projects-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:50px; } .project-card{ position:relative; overflow:hidden; border-radius:18px; cursor:pointer; background:#f3f3f3; box-shadow:0 12px 35px rgba(0,0,0,.08); } .project-card img{ width:100%; height:360px; object-fit:cover; display:block; transition:.5s; } .project-card:hover img{ transform:scale(1.08); } .project-overlay{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:24px; background:linear-gradient( to top, rgba(0,0,0,.65), rgba(0,0,0,0) ); opacity:0; transition:.35s; } .project-card:hover .project-overlay{ opacity:1; } .project-overlay h3{ color:white; font-size:24px; font-family:'Playfair Display',serif; margin:0; } @media(max-width:900px){ .projects-grid{ grid-template-columns:1fr; } .project-card img{ height:280px; } } .project-overlay{ position:absolute; inset:0; display:flex; align-items:flex-end; padding:28px; background:linear-gradient( to top, rgba(0,0,0,.72), rgba(0,0,0,.15), transparent ); opacity:0; transition:.35s; } .project-card:hover .project-overlay{ opacity:1; } .project-info{ transform:translateY(20px); transition:.35s; } .project-card:hover .project-info{ transform:translateY(0); } .project-info span{ display:inline-block; color:#d9b97c; text-transform:uppercase; letter-spacing:3px; font-size:12px; margin-bottom:10px; font-weight:600; } .project-info h3{ color:#fff; font-family:'Playfair Display', serif; font-size:28px; margin:0; }
+
+
+Fechar
