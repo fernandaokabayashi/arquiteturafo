@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <!-- FO — Icone isolado v2 (2026-04-29): linha com mesma largura do F.O renderizado (321 ajustado para 320) -->
+  <text x="300" y="380" text-anchor="middle"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="240" font-weight="900" letter-spacing="-6"
+        fill="#1A1A1A">F.O</text>
+  <!-- Linha Tiffany abaixo do F.O, largura = F.O (320 SVG units) -->
+  <line x1="140" y1="430" x2="460" y2="430" stroke="#0ABAB5" stroke-width="10"/>
+</svg>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 500" width="1280" height="500">
+  <!-- FO Arquitetura — Logo completo v3 (2026-04-29) -->
+  <!-- Layout horizontal com separador vertical Tiffany -->
+  <!-- Espacamento simetrico: F.O -> linha = 80 = linha -> ARQUITETURA (correção do feedback do senhor) -->
+  <!-- F.O width medido = 270 @ size 200 weight 900 ls -4; ARQUITETURA = 432 @ size 56 ls 6 -->
+  <!-- F.O em bloco grande, alinhado a esquerda -->
+  <text x="160" y="340" text-anchor="start"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="200" font-weight="900" letter-spacing="-4"
+        fill="#1A1A1A">F.O</text>
+  <!-- Linha vertical Tiffany separadora -->
+  <!-- F.O termina em x=160+270=430. Gap 80. Linha em x=510. -->
+  <line x1="510" y1="200" x2="510" y2="360" stroke="#0ABAB5" stroke-width="8"/>
+  <!-- ARQUITETURA + AVALIACOES IMOBILIARIAS -->
+  <!-- Gap 80 da linha: ARQUITETURA comeca em x=590. Centralizado verticalmente com a linha. -->
+  <text x="590" y="285" text-anchor="start"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="56" font-weight="300" letter-spacing="6"
+        fill="#1A1A1A">ARQUITETURA</text>
+  <text x="590" y="335" text-anchor="start"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-size="22" font-weight="500" letter-spacing="14"
+        fill="#0ABAB5">AVALIAÇÕES IMOBILIÁRIAS</text>
+</svg>
