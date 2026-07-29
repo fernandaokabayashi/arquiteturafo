@@ -32,7 +32,7 @@ function cssUrl(s: string) {
       : ''}
   >
     <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="container hero-simple">
+    <div class="container simple">
 
   <span class="eyebrow">
     Fernanda Okabayashi Arquitetura e Interiores
@@ -49,7 +49,7 @@ function cssUrl(s: string) {
     e Banco do Brasil e INSS de obras com excelência técnica.
   </p>
 
-  <div class="hero-cta">
+  <div class="cta">
     <a
     <a
   href="https://wa.me/5544999017322?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento."
@@ -286,11 +286,11 @@ function cssUrl(s: string) {
 
 <style>
   .hero {
-    --hero-image: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
-    --hero-image-mobile: var(--hero-image);
+    --image: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+    --image-mobile: var(--image);
    background: #ffffff;
 color: var(--gray-900);
-    background-image: var(--hero-image);
+    background-image: var(--image);
     background-size: cover;
     background-position: center 25%;
     background-repeat: no-repeat;}
@@ -301,11 +301,11 @@ color: var(--gray-900);
     color:#222;
 }
 
-.hero-overlay{
+.overlay{
     display:none;
 }
 
-.hero-simple{
+.simple{
     max-width:760px;
 }
 
@@ -328,7 +328,7 @@ color: var(--gray-900);
     margin-bottom:18px;
 }
 
-.hero-inner{
+.inner{
     display:grid;
     grid-template-columns:1.4fr 1fr;
     gap:64px;
@@ -336,10 +336,6 @@ color: var(--gray-900);
     position:relative;
     z-index:2;
     width:100%;
-}
-
-.hero-text{
-    max-width:720px;
 }
 
 { 
@@ -352,11 +348,11 @@ display: grid;
     width: 100%;
   }
 
-  .hero-with-photo .hero-inner {
+  .with-photo .inner {
     grid-template-columns: minmax(0, 720px);
   }
 
-  .hero-cta {
+  .cta {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
@@ -373,14 +369,14 @@ display: grid;
     border-color: #fff;
   }
 
-  .hero-visual {
+  .visual {
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 0.96;
   }
 
-  .hero-visual .hero-mark {
+  .visual .mark {
     max-width: 360px;
     width: 100%;
     filter: drop-shadow(0 24px 64px rgba(0,0,0,0.35));
@@ -388,9 +384,9 @@ display: grid;
 
   @media (max-width: 900px) {
     .hero { padding: 96px 0 80px; min-height: 480px; }
-    .hero-inner { grid-template-columns: 1fr; }
-    .hero-visual { order: -1; }
-    .hero-visual .hero-mark { max-width: 200px; }
+    .inner { grid-template-columns: 1fr; }
+    .visual { order: -1; }
+    .visual .mark { max-width: 200px; }
   }
 
   .section-head {
